@@ -37,32 +37,50 @@
 
 		<dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId> <!-- a -->
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId> <!-- a -->
         </dependency>
 
 		<dependency>
-			<groupId>com.h2database</groupId>
+			<groupId>com.h2database</groupId> <!-- a -->
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
+            <artifactId>spring-boot-devtools</artifactId> <!-- a -->
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
+			<artifactId>spring-boot-starter-test</artifactId> <!-- a -->
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId> <!-- a -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId> <!-- a -->
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.ant</groupId> <!-- a -->
+			<artifactId>ant</artifactId>
+			<version>1.10.6</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
