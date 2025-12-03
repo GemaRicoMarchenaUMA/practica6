@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,12 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Usuario;
 import com.example.demo.model.UsuarioService;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 @RestController
 public class UsuarioController {
     
     @Autowired
     private UsuarioService usuarioService;
 
+    
     // Devuelve todas las personas
     @GetMapping("/usuarios")
     public List<Usuario> getUsuarios(){
@@ -63,6 +68,7 @@ public class UsuarioController {
     public ResponseEntity<?> deleteUsuario(@RequestBody Usuario usuario){
         try{
             usuarioService.removeUsuario(usuario);
+            //response.sendRedirect("/listUsuario");
             return ResponseEntity.ok().body("El Usuario se ha eliminado");
         }
         catch(Exception e){
