@@ -12,8 +12,10 @@
     <a th:href="@{/}">⬅ Volver al inicio</a>
     <br><br>
 
-    <h1 style="text-align: center;">Lista de usuarios Registrados</h1>
-    <table >
+    <h1 style="color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 300; text-align: center;">Lista de usuarios Registrados</h1>
+    <table id = "tablaUsuarios" >
         <thead>
             <tr>
                 <th>ID</th>
@@ -43,6 +45,12 @@
                             th:action="@{/editUsuario/{id}(id=${usuario.id})}">
                             <input type="submit" class="primary btn btn-sm btn-primary" 
                                 value="Editar" />
+                        </form>
+                        <!----------EDITAR ESTO Y AÑADIR HISTORIAL DE IMPACTO---->
+                        <form th:method="GET"
+                            th:action="@{/editUsuario/{id}(id=${usuario.id})}">
+                            <input type="submit" class="primary btn btn-sm btn-primary" 
+                                value="Historial de impacto" />
                         </form>
 
                     </div>
@@ -74,6 +82,10 @@
 
     </div>
 </body>
+
+<footer>
+    <p>&copy; 2025 Proyecto Ares</p>
+</footer>
 </html>
 
 

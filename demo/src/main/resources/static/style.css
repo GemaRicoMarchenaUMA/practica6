@@ -1,5 +1,5 @@
 
-/* General */
+/* ----------GENERAL---------- */
 * {
     padding: 0;
     margin: 0;
@@ -7,37 +7,163 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-header
-{
-    background-color: #a576d1;
-    padding: 10px;
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Degradado azul */
+    color: white;
+    width: 100%;
+    padding: 2rem 0;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+header h1 {
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
-body{
-    background-color: bisque;
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f6f9; /* Gris muy clarito, elegante */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    align-items: center; /* Centra todo horizontalmente */
 }
-.boton{margin-right: 2%;}
 
-table {
-    width: 80%;
-    border-collapse: collapse;
+/*-----------INDEX U---------------------*/
+#indexMenu {
+    list-style-type: none; /* Quita los puntos */
+    padding: 0;
+    width: 90%;
+    margin: 20px auto; 
+    max-width: 500px;
+}
+
+#indexMenu li {
     margin-bottom: 20px;
+}
+
+#indexMenu a {
+    display: block; /* Ocupa todo el ancho disponible */
+    background-color: white;
+    text-decoration: none; /* Quita el subrayado azul feo */
+    color: #2c3e50;
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    
+    /* Sombra suave para efecto 3D */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e1e1e1;
+    
+    /* Animación suave */
+    transition: all 0.3s ease;
+}
+ #indexMenu a:hover {
+    transform: translateY(-5px); /* Se levanta un poco */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* Sombra más grande */
+    background-color: #3498db; /* Se vuelve azul */
+    color: white; /* Texto blanco */
+    border-color: #3498db;
+}
+
+
+/*---------------------------TABLA USUARIOS---------------------*/
+#tablaUsuarios {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden;
     text-align: center;
     border: 2px solid black;
 }
 
-thead{
+.btn-group {
+    display: flex;
+    gap: 5px; /* Espacio entre botones */
+}
+
+ #tablaUsuarios thead{
     background-color: #b29ac95c;
     color: black;
 }
+ #tablaUsuarios thead tr {
+    background-color: #2c3e50; /* Azul oscuro */
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+#tablaUsuarios th, td {
+padding: 12px 15px;
+border-bottom: 1px solid #ddd;
+}
+#tablaUsuarios tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
 
 tr{
     border-bottom: 1px solid grey;
 }
 
+/* botones tabla */
+.btn-group {
+    display: flex;
+    gap: 5px; /* Espacio entre botones */
+}
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+/* eliminar*/
+.delete, .btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+/* editar */
+.primary, .btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Botón Añadir  */
+.btn-success {
+    background-color: #27ae60;
+    color: white;
+}
+
+/*volver*/
+/* Botón Volver (Gris) */
+a[href="/"] { /* Selecciona el enlace de volver */
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #7f8c8d;
+    text-decoration: none;
+    font-weight: 500;
+}
+a[href="/"]:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+}
+
+/*----------FORMULARIO USUARIO----------*/
 .container {
     width: 50%;
     margin: auto;
@@ -46,6 +172,75 @@ tr{
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
+}
+.container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+.container form p {
+    margin-bottom: 15px;
+    font-weight: 600; 
+    color: #34495e;
+}
+.container input[type="text"],
+.container input[type="email"],
+.container input[type="number"],
+.container select {
+    width: 100%;          /* Que ocupen todo el ancho de la caja */
+    padding: 12px;        /* Más espacio interior para escribir cómodo */
+    margin-top: 5px;      /* Separación del texto de arriba */
+    border: 1px solid #ccc;
+    border-radius: 6px;   /* Bordes redondeados */
+    background-color: white;
+    font-size: 1rem;
+    outline: none;        /* Quita el borde azul feo por defecto */
+    transition: border 0.3s;
+}
+.boton {
+    width: 48%;           /* Para que quepan los dos en la misma línea */
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+/* Botón Crear */
+input[type="submit"].boton {
+    background-color: #27ae60;
+    margin-right: 2%; /* Un pequeño margen a la derecha */
+}
+/* Botón Reset  */
+input[type="reset"].boton {
+    background-color: #95a5a6;
+}
+/* Botón atrás*/
+.container a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+    text-decoration: none;
+    font-weight: normal;
+}
+.container a:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
 }
 
 
