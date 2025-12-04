@@ -16,7 +16,7 @@ public class UsuarioViewController {
     private UsuarioService usuarioService;
 	
 	/*---Devuelve el formulario de index de usuarios   ---*/
-	@GetMapping("/holaa")
+	@GetMapping("/")
 	public String indexUsuarioView() {
 		return "indexU";
 	}
