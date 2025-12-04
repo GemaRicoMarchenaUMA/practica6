@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+    
 <head>
     <title>Añadir Usuario</title>
+    <link href="style.css" rel="stylesheet"/>
+
 </head>
+<header>
+    <h1>Gestión de Usuarios</h1>
+</header>
 <body>
-    <h1>Nuevo Usuario</h1>
-    
- 
+
+    <div class = "container">
+    <h1>Añadir nuevo usuario</h1>    
     <form th:action="@{/usuario}" th:object="${usuario}" th:method="post">
     	<p>DNI: <input type="text" th:field="*{dni}" /></p>
         <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
@@ -22,6 +28,7 @@
         <input  class="boton" type="reset" value="Reset" /></p>
     </form>
     <a th:href="@{/}">Atrás</a>
+    </div>
  
 
 </body>

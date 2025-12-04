@@ -2,15 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Editar Usuario</title>
+    <link href="/style.css" rel="stylesheet"/>
 </head>
+<header>
+    <h1>Gestión de Usuarios</h1>
+</header>
 <body>
-    <h1>Editar Usuario</h1>
     
+    <div class = "container">
+    <h1>Editar Usuario</h1>
     <form th:object="${usuario}" th:action="@{/usuario}"  th:method="put" style="margin: 10px">
         
         <p><label>ID</label> <input type="number"
                             th:field="${usuario.id}"
                             autofocus="autofocus" readonly placeholder="ID"/></p>
+        
+        <p><label>DNI</label> <input type="text"
+                            th:field="${usuario.dni}"
+                            autofocus="autofocus" placeholder="DNI"/> </p> 
           
         <p><label>Nombre</label> <input type="text"
                             th:field="${usuario.nombre}"
@@ -31,5 +40,6 @@
         <button type="submit">Guardar Usuario</button>
 			<a th:href="@{/listUsuario}" >Atras</a>
     </form>
+    </div>
 </body>
 </html>

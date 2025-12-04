@@ -2,13 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista de Usuarios</title>
+     <link href="style.css" rel="stylesheet"/>
 </head>
+
+<header>
+    <h1>Gestión de Usuarios</h1>
+</header>
 <body>
-    <h1>Lista de Usuarios Registrados</h1>
     <a th:href="@{/}">⬅ Volver al inicio</a>
     <br><br>
 
-    <table border="1">
+    <h1 style="text-align: center;">Lista de usuarios Registrados</h1>
+    <table >
         <thead>
             <tr>
                 <th>ID</th>
