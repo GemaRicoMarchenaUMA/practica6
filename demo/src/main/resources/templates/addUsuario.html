@@ -6,25 +6,23 @@
 <body>
     <h1>Nuevo Usuario</h1>
     
-    <form th:action="@{/guardarUsuario}" th:object="${usuario}" method="post">
-        
-        <label>DNI:</label>
-        <input type="text" th:field="*{dni}" required /><br><br>
-
-        <label>Nombre:</label>
-        <input type="text" th:field="*{nombre}" required /><br><br>
-
-        <label>Email:</label>
-        <input type="email" th:field="*{email}" required /><br><br>
-
-        <label>Rol:</label>
-        <select th:field="*{rol}">
-            <option value="DEPORTISTA">Deportista</option>
-            <option value="MEDICO">Médico</option>
-            <option value="ENTRENADOR">Entrenador</option>
-        </select><br><br>
-
-        <button type="submit">Guardar Usuario</button>
+ 
+    <form th:action="@{/usuario}" th:object="${usuario}" th:method="post">
+    	<p>DNI: <input type="text" th:field="*{dni}" /></p>
+        <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+        <p>Email: <input type="email" th:field="*{email}" /></p>
+        <p>Rol: 
+            <select th:field="*{rol}">
+                <option value="DEPORTISTA">Deportista</option>
+                <option value="MEDICO">Médico</option>
+                <option value="ENTRENADOR">Entrenador</option>
+            </select>
+        </p>
+        <p><input class="boton" type="submit" value="Crear Usuario" /> 
+        <input  class="boton" type="reset" value="Reset" /></p>
     </form>
+    <a th:href="@{/}">Atrás</a>
+ 
+
 </body>
 </html>

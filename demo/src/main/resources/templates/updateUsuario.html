@@ -6,23 +6,30 @@
 <body>
     <h1>Editar Usuario</h1>
     
-    <form th:action="@{/guardarUsuario}" th:object="${usuario}" method="post">
+    <form th:object="${usuario}" th:action="@{/usuario}"  th:method="put" style="margin: 10px">
         
-        <input type="hidden" th:field="*{id}" />
-
-        <label>DNI:</label>
-        <input type="text" th:field="*{dni}" /><br><br>
-
-        <label>Nombre:</label>
-        <input type="text" th:field="*{nombre}" /><br><br>
-
-        <label>Email:</label>
-        <input type="email" th:field="*{email}" /><br><br>
-
-        <label>Rol:</label>
-        <input type="text" th:field="*{rol}" /><br><br>
-
-        <button type="submit">Actualizar</button>
+        <p><label>ID</label> <input type="number"
+                            th:field="${usuario.id}"
+                            autofocus="autofocus" readonly placeholder="ID"/></p>
+          
+        <p><label>Nombre</label> <input type="text"
+                            th:field="${usuario.nombre}"
+                            autofocus="autofocus" placeholder="Nombre"/> </p>  
+            
+        <p><label>Email</label> <input type="email"
+                            th:field="${usuario.email}"
+                            autofocus="autofocus" placeholder="Email"  /></p>
+        
+        <p>Rol: 
+            <select th:field="*{rol}">
+                <option value="DEPORTISTA">Deportista</option>
+                <option value="MEDICO">Médico</option>
+                <option value="ENTRENADOR">Entrenador</option>
+            </select>
+        </p>
+       
+        <button type="submit">Guardar Usuario</button>
+			<a th:href="@{/listUsuario}" >Atras</a>
     </form>
 </body>
 </html>

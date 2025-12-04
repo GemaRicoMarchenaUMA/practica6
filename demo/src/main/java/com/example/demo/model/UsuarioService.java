@@ -36,7 +36,8 @@ public class UsuarioService {
         usuario.setNombre(u.getNombre());
         usuario.setDni(u.getDni());
         usuario.setEmail(u.getEmail());
-        repositorioUsuario.save(usuario);
+        usuario.setRol(u.getRol());
+        repositorioUsuario.saveAndFlush(usuario);
     }   
 
  

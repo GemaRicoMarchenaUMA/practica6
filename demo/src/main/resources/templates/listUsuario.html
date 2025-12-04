@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Lista de Usuarios Registrados</h1>
-    <a th:href="@{/holaa}">⬅ Volver al inicio</a>
+    <a th:href="@{/}">⬅ Volver al inicio</a>
     <br><br>
 
     <table border="1">
@@ -25,11 +25,7 @@
                 <td th:text="${usuario.dni}">12345678Z</td>
                 <td th:text="${usuario.nombre}">Nombre Ejemplo</td>
                 <td th:text="${usuario.email}">email@ejemplo.com</td>
-                <td th:text="${usuario.rol}">DEPORTISTA</td>
-                <th>Operaciones</th>
-                <td>
-                    <a th:href="@{/editUsuario/{id}(id=${usuario.id})}">Editar</a>
-                </td>
+                <td th:text="${usuario.rol}">DEPORTISTA</td>                
                 <td>
                     <div class="btn-group">
                         <form th:method="DELETE"
@@ -71,7 +67,6 @@
    
         <a class="btn btn-sm btn-success"th:href="@{/addUsuario}"> Añadir nuevo usuario</a>
 
-        <a class="btn btn-sm btn-primary" th:href="@{/}">Atrás</a>
     </div>
 </body>
 </html>

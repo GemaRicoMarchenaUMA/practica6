@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,36 +40,40 @@ public class UsuarioController {
         return usuarioService.getUsuario(id);
     }
 
+    
     // Crea una persona con el objeto Persona recibido en formato JSON
-    @PostMapping(value = "/usuario",     consumes = {MediaType.APPLICATION_JSON_VALUE} )
-	public ResponseEntity<?> saveUsuario(@RequestBody Usuario usuario) {
+    @PostMapping(value = "/usuario" )
+	public ResponseEntity<?> saveUsuario(HttpServletResponse response, Usuario usuario) {
         try{
             usuarioService.addUsuario(usuario);
+            response.sendRedirect("/listUsuario");
+
             return ResponseEntity.ok().body("Un nuevo Usuario se ha anyadido");
         }
         catch(Exception e){
-            return ResponseEntity.internalServerError().body("El Usuario ya existe");
+			return ResponseEntity.status(500).body("Error creando el usuario: " + e.getMessage());
         }
 	}
 
     // Actualiza una persona con el objeto Persona
     @PutMapping("/usuario")
-    public ResponseEntity<?> updateUsuario (Usuario usuario){    {
+    public ResponseEntity<?> updateUsuario (Usuario usuario, HttpServletResponse response) {    {
         try{
             usuarioService.updateUsuario(usuario);
+            response.sendRedirect("/listUsuario");
             return ResponseEntity.ok().body("El Usuario se ha actualizado");
         }
         catch(Exception e){
-            return ResponseEntity.internalServerError().body("Error al actualizar el Usuario");
+            return ResponseEntity.internalServerError().body("Error al actualizar el Usuario: " + e.getMessage());
         }}
     }
     
     // Elimina una persona pasando el objeto Persona
     @DeleteMapping("/usuario")
-    public ResponseEntity<?> deleteUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<?> deleteUsuario(HttpServletResponse response, @RequestBody Usuario usuario){
         try{
             usuarioService.removeUsuario(usuario);
-            //response.sendRedirect("/listUsuario");
+            response.sendRedirect("/listUsuario");
             return ResponseEntity.ok().body("El Usuario se ha eliminado");
         }
         catch(Exception e){
@@ -78,13 +83,16 @@ public class UsuarioController {
 
     // Otra forma de eliminar una persona con el ID
     @DeleteMapping("/usuario/{id}")
-    public ResponseEntity<?> deleteUsuario(@PathVariable("id") Long id) {
+    public ResponseEntity<?> deleteUsuario(HttpServletResponse response, @PathVariable("id") Long id) {
         try{
             usuarioService.removeUsuarioID(id);
+            response.sendRedirect("/listUsuario");
+
             return ResponseEntity.ok().body("El Usuario se ha eliminado");
         }
         catch(Exception e){
-            return ResponseEntity.internalServerError().body("Error al eliminar el Usuario");
+            return ResponseEntity.internalServerError().body("Error al eliminar el Usuario: " + e.getMessage());
         }
     }
+
 }
