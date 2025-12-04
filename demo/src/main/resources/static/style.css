@@ -1,0 +1,52 @@
+
+/* General */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header
+{
+    background-color: #a576d1;
+    padding: 10px;
+    text-align: center;
+}
+
+body{
+    background-color: bisque;
+}
+.boton{margin-right: 2%;}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 2px solid black;
+}
+
+thead{
+    background-color: #b29ac95c;
+    color: black;
+}
+
+tr{
+    border-bottom: 1px solid grey;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+}
+
+
+
