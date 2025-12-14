@@ -3,17 +3,23 @@
 <head>
     <title>Inicio Ares</title>
     <link href="style.css" rel="stylesheet"/>
-</head>
 <header>
-    <h1>Gestión de Usuarios - Proyecto Ares</h1>
+    <div class="header-inner">
+        <h1>Gestión de Usuarios - Proyecto Ares</h1>
+    </div>
 </header>
+
+<!-- Sección principal: fondo decorativo tenue entre cabecera y pie; el fondo no interfiere con el contenido -->
 <body>
-    
-    <hr>
-    <ul id="indexMenu">
-        <li><a th:href="@{/listUsuario}">📋 Ver lista de usuarios</a></li>
-        <li><a th:href="@{/addUsuario}">➕ Añadir nuevo usuario</a></li>
-    </ul>
+    <div class="content-wrapper">
+        <div class="content-inner">
+            <hr>
+            <ul id="indexMenu">
+                <li><a th:href="@{/listUsuario}">📋 Ver lista de usuarios</a></li>
+                <li><a th:href="@{/addUsuario}">➕ Añadir nuevo usuario</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 <footer>
     <p>&copy; 2025 Proyecto Ares</p>
