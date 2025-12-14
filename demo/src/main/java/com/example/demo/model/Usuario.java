@@ -1,10 +1,14 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
 
 @Entity
 public class Usuario {
@@ -19,6 +23,9 @@ public class Usuario {
     private String email;
     private String rol;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Impacto> impactos;
+    
     public Long getId() {
         return id;
     }
@@ -49,6 +56,16 @@ public class Usuario {
     }
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    
+    
+    public List<Impacto> getImpactos() {
+    return impactos;
+}
+
+    public void setImpactos(List<Impacto> impactos) {
+        this.impactos = impactos;
     }
 
 }

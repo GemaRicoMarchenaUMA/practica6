@@ -48,7 +48,7 @@
                         </form>
                         <!----------EDITAR ESTO Y AÑADIR HISTORIAL DE IMPACTO---->
                         <form th:method="GET"
-                            th:action="@{/editUsuario/{id}(id=${usuario.id})}">
+                            th:action="@{/impactos/{id}(id=${usuario.id})}">
                             <input type="submit" class="primary btn btn-sm btn-primary" 
                                 value="Historial de impacto" />
                         </form>
@@ -76,7 +76,7 @@
     <div th:if="${create != null && !create}" class="alert alert-danger">
         <strong>Error </strong> Error al crear el usuario.
     </div>
-    <div class="panel-footer">
+    <div >
    
         <a class="btn btn-sm btn-success"th:href="@{/addUsuario}"> Añadir nuevo usuario</a>
 

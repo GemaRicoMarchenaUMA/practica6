@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+    <title>Añadir Usuario</title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+</head>
+<header>
+    <h1>Gestión de Usuarios</h1>
+</header>
+<body>
+
+    <div th:if="${usuario.rol != 'DEPORTISTA'}" 
+         style="text-align: center; margin: 50px; color: #7f8c8d;">
+        
+        <h2>⚠️ Información no disponible</h2>
+        <p style="font-size: 1.2rem;">
+            Este usuario es <strong><span th:text="${usuario.rol}">MEDICO</span></strong>, 
+            por lo que no registra historial de impactos.
+        </p>
+        <a th:href="@{/listUsuario}"> ⬅Atrás</a>
+
+    </div>
+
+    <div th:if="${usuario.rol == 'DEPORTISTA'}">
+        <div class = "container">
+        <h1 th:text="|Historial de Impactos de ${usuario.nombre}|">Historial de Impactos</h1><table id="tablaUsuarios" >
+            <thead>
+                <tr>
+                    <th>ID Impacto</th>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Gravedad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="impacto : ${impactos}">
+                    <td th:text="${impacto.id}">1</td>
+                    <td th:text="${impacto.fecha}">2024-01-01</td>
+                    <td th:text="${impacto.descripcion}">Descripción del impacto</td>
+                    <td th:text="${impacto.nivel}">10</td>
+                    <td>
+                    <div class="btn-group">
+                        <form th:method="delete" 
+                            th:action="@{/impacto/{id}(id=${impacto.id}, idUsuario=${usuario.id})}">
+                            
+                            <input type="submit" class="delete btn btn-sm btn-danger" 
+                                value="Eliminar" />
+                        </form>
+                    </div>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        </div>
+        <div >
+    
+            <a class="btn btn-sm btn-success" th:href="@{/addImpacto/{idUsuario}(idUsuario=${usuario.id})}">Añadir Impacto Manualmente</a>
+
+
+        </div>
+        
+        <a th:href="@{/listUsuario}"> ⬅Atrás</a>
+    </div>
+</body>
+</html>
+<footer>
+    <p>© 2024 Gestión de Impactos</p>
+</footer>

@@ -147,6 +147,9 @@ tr{
 .btn-success {
     background-color: #27ae60;
     color: white;
+    display: block;         
+    margin: 20px auto;      
+    width: fit-content;
 }
 
 /*volver*/
