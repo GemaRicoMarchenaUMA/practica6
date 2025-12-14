@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Añadir Impacto</title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+</head>
+<header>
+    <h1>Gestión de Usuarios - Impactos</h1>
+</header>
+<body>
+
+    <div class="container">
+    <h1>Añadir nuevo Impacto</h1>    
+    
+    <form th:action="@{/impacto}" th:object="${impacto}" method="post">
+        
+        <input type="hidden" name="idUsuario" th:value="${idUsuario}" />
+
+        <p>Descripción: <input type="text" th:field="*{descripcion}" required /></p>
+        <p>Fecha: <input type="date" th:field="*{fecha}" /></p>
+        
+        <p>Gravedad (Nivel): <input type="number" th:field="*{nivel}" min="0" /></p>
+        
+        <p>
+            <input class="boton" type="submit" value="Crear Impacto" /> 
+            <input class="boton" type="reset" value="Reset" />
+        </p>
+
+    </form> 
+
+    </div>
+
+    <a th:href="@{/impactos/{id}(id=${idUsuario})}"> ⬅ Atrás</a>
+
+</body>
+<footer>
+    <p>&copy; 2025 Proyecto Ares</p>
+</footer>
+</html>
